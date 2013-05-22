@@ -1,9 +1,9 @@
-atlassian-cli-packager
+ec2-cli-packager
 ======================
 
-A packager for the atlassian-cli that turns it into an RPM with mock
+A packager for the EC2 command line tools that turns it into an RPM with mock
 
-See : https://marketplace.atlassian.com/plugins/org.swift.atlassian.cli
+See : http://aws.amazon.com/developertools/351
 
 Requirements
 ============
@@ -18,4 +18,3 @@ Check it out
 make rpm
 
 ... an rpm comes out in 'dist'.
-

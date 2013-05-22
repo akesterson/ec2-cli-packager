@@ -15,7 +15,7 @@ Source: %{name}-%{version}-%{release}.tar.gz
 
 
 %description
-Amazon EC2 Command Line Utilities
+Amazon EC2 Command Line Utilities. http://aws.amazon.com/developertools/351
 
 %install
 mkdir -p %{buildroot}/opt/ec2-api-tools
