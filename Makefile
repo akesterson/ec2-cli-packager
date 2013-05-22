@@ -1,9 +1,10 @@
 TARGET=epel-5-x86_64
 
+.PHONY: clean
 clean:
 	rm -fr ec2-api-tools.zip
 	rm -fr dist
-	rm version.sh
+	rm -f version.sh
 
 ec2-api-tools.zip:
 	wget -O ec2-api-tools.zip 'http://www.amazon.com/gp/redirect.html/ref=aws_rc_ec2tools?location=http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip&token=A80325AA4DAB186C80828ED5138633E3F49160D9'
