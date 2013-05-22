@@ -27,4 +27,4 @@ rpm: version.sh dist
 	mkdir -p dist/
 	source version.sh ; \
 	mock --buildsrpm --spec rpm.spec --sources ./dist/ --resultdir ./dist/ --define "version $${MAJOR}" --define "release $${MINOR}" ; \
-	mock -r $(TARGET) ./dist/atlassian-cli-$${MAJOR}-$${MINOR}.src.rpm --resultdir ./dist/ --define "version $${MAJOR}" --define "release $${MINOR}"
+	mock -r $(TARGET) ./dist/ec2-api-tools-$${MAJOR}-$${MINOR}.src.rpm --resultdir ./dist/ --define "version $${MAJOR}" --define "release $${MINOR}"
