@@ -14,8 +14,8 @@ ec2-api-tools: ec2-api-tools.zip
 	ln -s ec2-api-tools-[0-9\.]* ec2-api-tools
 
 version.sh: ec2-api-tools
-	echo "MAJOR=$$(ls -d atlassian-cli-* | cut -d - -f 4 | cut -d . -f 1-3)" > version.sh; \
-	echo "MINOR=$$(ls -d atlassian-cli-* | cut -d - -f 4 | cut -d . -f 4)" >> version.sh
+	echo "MAJOR=$$(ls -d ec2-api-tools-* | cut -d - -f 4 | cut -d . -f 1-3)" > version.sh; \
+	echo "MINOR=$$(ls -d ec2-api-tools-* | cut -d - -f 4 | cut -d . -f 4)" >> version.sh
 
 dist: ec2-api-tools
 	mkdir -p dist/
