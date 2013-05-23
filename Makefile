@@ -14,17 +14,18 @@ ec2-api-tools: ec2-api-tools.zip
 	ln -s ec2-api-tools-[0-9\.]* ec2-api-tools
 
 version.sh: ec2-api-tools
-	echo "MAJOR=$$(ls -d ec2-api-tools-* | cut -d - -f 4 | cut -d . -f 1-3)" > version.sh; \
+	echo "VERSION=$$(ls -d ec2-api-tools-* | cut -d - -f 4 | cut -d . -f 1-4)" > version.sh; \
+	echo "MAJOR=$$(ls -d ec2-api-tools-* | cut -d - -f 4 | cut -d . -f 1-3)" >> version.sh; \
 	echo "MINOR=$$(ls -d ec2-api-tools-* | cut -d - -f 4 | cut -d . -f 4)" >> version.sh
 
 dist: ec2-api-tools
 	mkdir -p dist/
 	source version.sh ; \
-	cd ec2-api-tools && tar -czf ../dist/ec2-api-tools-$${MAJOR}-$${MINOR}.tar.gz .
+	cd ec2-api-tools && tar -czf ../dist/ec2-api-tools-$${VERSION}.tar.gz .
 
 rpm: version.sh dist
 	mock --scrub=all -r ${TARGET}
 	mkdir -p dist/
 	source version.sh ; \
-	mock --buildsrpm --spec rpm.spec --sources ./dist/ --resultdir ./dist/ --define "version $${MAJOR}" --define "release $${MINOR}" ; \
-	mock -r $(TARGET) ./dist/ec2-api-tools-$${MAJOR}-$${MINOR}.src.rpm --resultdir ./dist/ --define "version $${MAJOR}" --define "release $${MINOR}"
+	mock --buildsrpm --spec rpm.spec --sources ./dist/ --resultdir ./dist/ --define "version $${VERSION}" ; \
+	mock -r $(TARGET) ./dist/ec2-api-tools-$${VERSION}-0.src.rpm --resultdir ./dist/ --define "version $${VERSION}"
